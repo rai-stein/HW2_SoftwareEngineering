@@ -1,21 +1,21 @@
 public class DateTime extends Date {
-    int hour; // between 00 and 23
-    int min; // between 00 and 59
+    int hour = 0; // between 00 and 23
+    int min = 0; // between 00 and 59
     public DateTime(int y, int m, int d, int h, int min) {
         super(y, m, d);
-        this.hour = h;
-        this.min = min;
+        setHour(h);
+        setMinute(min);
     }
-
     public void setHour(int i) {
+        if((0 <= i) && (i <= 23)){
+            this.hour = i;
+        }
     }
-
-    public void setMonth(int i) {
-    }
-
     public void setMinute(int i) {
+        if((0 <= i) && (i <= 59)){
+            this.min = i;
+        }
     }
-
     @Override
     public String toString(){
         String toReturn = " ";
@@ -30,12 +30,30 @@ public class DateTime extends Date {
         toReturn = toReturn + hour + ":" + minute;
         return toReturn;
     }
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof DateTime)){
+            return false;
+        }
+        DateTime otherDate = (DateTime) o;
+        if (otherDate == this) {
+            return true;
+        }
 
-//    @Override
-//    public boolean equals(DateTime otherDate){
-//        boolean equals = true;
-//
-//        return equals;
-//    }
+        return (this.hashCode() == otherDate.hashCode());
+    }
+
+    @Override
+    public int hashCode(){
+        int hashNumDate = super.hashCode();
+        String date = Integer.toString(hashNumDate);
+        String hour = Integer.toString(this.hour);
+        String minute = Integer.toString(this.min);
+
+        String dateTime = date + hour + minute;
+
+        return Integer.parseInt(dateTime);
+
+    }
 
 }
