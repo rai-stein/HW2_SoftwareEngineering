@@ -60,20 +60,68 @@ public class DateTime extends Date {
     @Override
     public int hashCode(){
         int hashNumDate = super.hashCode();
+        int sumMinutes = 0;
+        int year;
         boolean minus = false;
         if(hashNumDate < 0){
-            hashNumDate *= (-1);
             minus = true;
+            year = super.year *(-1);
+
         }
-        String date = Integer.toString(hashNumDate);
-        String hour = Integer.toString(this.hour);
-        String minute = Integer.toString(this.min);
+        else {
+            year = super.year;
+        }
+        sumMinutes += (year-1)*365*24*60+ (super.day-1)*24*60+(this.hour)*60+(this.min);
+        int daysInMonth=0;
 
-        String dateTime = date + hour + minute;
+        switch (super.month){
+            case 1:
+                daysInMonth = 0;
+                break;
+            case 2:
+                daysInMonth =31;
+                break;
+            case 3:
+                daysInMonth = 59;
+                break;
+            case 4:
+                daysInMonth = 90;
+                break;
+            case 5:
+                daysInMonth = 120;
+                break;
+            case 6:
+                daysInMonth = 151;
+                break;
+            case 7:
+                daysInMonth = 181;
+                break;
+            case 8:
+                daysInMonth= 212;
+                break;
+            case 9:
+                daysInMonth=243;
+                break;
+            case 10:
+                daysInMonth = 273;
+                break;
+            case 11:
+                daysInMonth = 304;
+                break;
+            case 12:
+                daysInMonth = 334;
+                break;
+        }
+        sumMinutes += daysInMonth*24*60;
+        return sumMinutes;
 
-        if(minus) return((-1) * Integer.parseInt(dateTime));
 
-        return Integer.parseInt(dateTime);
+
+
+
+
+
+
 
     }
 
