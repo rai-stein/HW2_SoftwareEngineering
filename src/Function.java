@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class Function {
+package PACKAGE_NAME;public abstract class Function {
+
+    public abstract double valueAt(double x);
+    public abstract String toString();
+    public abstract Function derivative();
 }
