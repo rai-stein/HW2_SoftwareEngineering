@@ -113,6 +113,7 @@ public class DateTime extends Date {
                 break;
         }
         sumMinutes += daysInMonth*24*60;
+        if (minus) sumMinutes*=(-1);
         return sumMinutes;
 
 
