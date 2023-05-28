@@ -37,6 +37,11 @@ public class Date {
     @Override
     public String toString(){
         String toReturn;
+        boolean minus = false;
+        if(year < 0){
+            year *= (-1);
+            minus = true;
+        }
         String day = Integer.toString(this.day);
         String month = Integer.toString(this.month);
         String year = Integer.toString(this.year);
@@ -46,6 +51,7 @@ public class Date {
         else if(year.length() == 2) year = "00" + year;
         else if(year.length() == 3) year = "0" + year;
         // DD/MM/YYYY
+        if(minus) year = "-" + year;
         toReturn = day + "/" + month + "/" + year;
         return toReturn;
     }
@@ -67,11 +73,18 @@ public class Date {
      */
     @Override
     public int hashCode(){
+        boolean minus = false;
+        if(year < 0){
+            year *= (-1);
+            minus = true;
+        }
         String day = Integer.toString(this.day);
         String month = Integer.toString(this.month);
         String year = Integer.toString(this.year);
 
         String date = day + month + year;
+
+        if(minus) return ((-1)*Integer.parseInt(date));
 
         return Integer.parseInt(date);
     }

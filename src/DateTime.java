@@ -60,11 +60,18 @@ public class DateTime extends Date {
     @Override
     public int hashCode(){
         int hashNumDate = super.hashCode();
+        boolean minus = false;
+        if(hashNumDate < 0){
+            hashNumDate *= (-1);
+            minus = true;
+        }
         String date = Integer.toString(hashNumDate);
         String hour = Integer.toString(this.hour);
         String minute = Integer.toString(this.min);
 
         String dateTime = date + hour + minute;
+
+        if(minus) return((-1) * Integer.parseInt(dateTime));
 
         return Integer.parseInt(dateTime);
 
