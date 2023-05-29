@@ -18,4 +18,14 @@ package PACKAGE_NAME;public class Power  extends PACKAGE_NAME.Function {
     public String toString() {
         return this.function.toString()+"^"+Double.toString(pow);
     }
+
+    @Override
+    public PACKAGE_NAME.Function derivative() {
+        PACKAGE_NAME.Function prod = new PACKAGE_NAME.Product(
+                new PACKAGE_NAME.Constant(this.pow),
+                new Power(this.function,this.pow -1)
+        );
+        return prod;
+
+    }
 }
