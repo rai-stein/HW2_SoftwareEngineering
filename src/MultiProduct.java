@@ -36,7 +36,11 @@ public class MultiProduct extends Function {
     @Override
     public Function derivative() {
 
+
+
         return null;
+
+
 
     }
 }

@@ -30,10 +30,22 @@ public abstract class Function {
         return (left + right)/2;
     }
     public double newtonRaphsonMethod(double a, double epsilon){
-
+        double xk = a;
+        double xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+        while(this.valueAt(xk) >= epsilon){
+            xk = xk1;
+            xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+        }
+        return xk;
     }
     public double newtonRaphsonMethod(double a){
-
+        double xk = a;
+        double xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+        while(this.valueAt(xk) >= kavua){
+            xk = xk1;
+            xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+        }
+        return xk;
     }
     public Function taylorPolynomial(int n){
 

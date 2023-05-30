@@ -49,9 +49,4 @@ public class Polynomial extends Function {
         return toReturn.toString();
     }
 
-    @Override
-    public Function taylorPolynomial(int n){
-        return null;
-    }
-
 }
