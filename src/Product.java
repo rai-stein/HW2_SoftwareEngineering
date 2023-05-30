@@ -1,8 +1,8 @@
-package PACKAGE_NAME;public class Product extends PACKAGE_NAME.Function {
-    private PACKAGE_NAME.Function[] product;
 
-    public Product(PACKAGE_NAME.Function func1, PACKAGE_NAME.Function func2){
+public class Product extends MultiProduct {
+    private Function[] product;
 
+    public Product(Function func1, Function func2){
         this.product[0] = func1;
         this.product[1] = func2;
     }
@@ -14,8 +14,8 @@ package PACKAGE_NAME;public class Product extends PACKAGE_NAME.Function {
 
     @Override
     public String toString() {
-        if (this.product[0].getClass() == PACKAGE_NAME.Constant.class){
-            if (this.product[1].getClass() == PACKAGE_NAME.Constant.class){
+        if (this.product[0].getClass() == Constant.class){
+            if (this.product[1].getClass() == Constant.class){
                 double temp =  this.product[0].valueAt(0)*this.product[1].valueAt(0);
                 return Double.toString(temp);
             }

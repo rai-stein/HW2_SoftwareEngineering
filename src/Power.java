@@ -1,8 +1,8 @@
-package PACKAGE_NAME;public class Power  extends PACKAGE_NAME.Function {
-    private PACKAGE_NAME.Function function;
+public class Power extends Function {
+    private Function function;
     private int pow;
 
-    public Power(PACKAGE_NAME.Function func, int pow){
+    public Power(Function func, int pow){
         this.function = func;
         this.pow = pow;
     }
@@ -20,9 +20,9 @@ package PACKAGE_NAME;public class Power  extends PACKAGE_NAME.Function {
     }
 
     @Override
-    public PACKAGE_NAME.Function derivative() {
-        PACKAGE_NAME.Function prod = new PACKAGE_NAME.Product(
-                new PACKAGE_NAME.Constant(this.pow),
+    public Function derivative() {
+        Function prod = new Product(
+                new Constant(this.pow),
                 new Power(this.function,this.pow -1)
         );
         return prod;

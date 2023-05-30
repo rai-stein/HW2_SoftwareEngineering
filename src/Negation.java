@@ -1,6 +1,6 @@
-package PACKAGE_NAME;public class Negation extends PACKAGE_NAME.Function {
-    private PACKAGE_NAME.Function function;
-    public Negation(PACKAGE_NAME.Function function){
+public class Negation extends Product {
+    private Function function;
+    public Negation(Function function){
         this.function = function;
     }
 
@@ -15,8 +15,8 @@ package PACKAGE_NAME;public class Negation extends PACKAGE_NAME.Function {
     }
 
     @Override
-    public PACKAGE_NAME.Function derivative() {
-        PACKAGE_NAME.Function prod = new PACKAGE_NAME.Product(new PACKAGE_NAME.Constant(-1),this.function);
+    public Function derivative() {
+        Function prod = new Product(new Constant(-1),this.function);
         return prod.derivative();
     }
 }

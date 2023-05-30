@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class MultiProduct {
+public class MultiProduct extends Function {
+
 }

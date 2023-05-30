@@ -1,4 +1,4 @@
-package PACKAGE_NAME;public class simpleX extends PACKAGE_NAME.Function {
+public class simpleX extends Function {
     public simpleX(){}
 
     @Override
@@ -12,8 +12,8 @@ package PACKAGE_NAME;public class simpleX extends PACKAGE_NAME.Function {
     }
 
     @Override
-    public PACKAGE_NAME.Function derivative() {
-        PACKAGE_NAME.Function one = new PACKAGE_NAME.Constant(1);
+    public Function derivative() {
+        Function one = new Constant(1);
         return one;
     }
 }

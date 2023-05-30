@@ -1,22 +1,20 @@
-package PACKAGE_NAME;public class Constant extends PACKAGE_NAME.Function {
+public class Constant extends Polynomial { //constant is a polynomial of order 0
     private double constant;
     public Constant(double x){
         this.constant = x;
     }
-
     @Override
     public double valueAt(double x) {
         return this.constant;
     }
-
     @Override
     public String toString() {
         return ("(" + this.constant+ ")");
     }
-
     @Override
-    public PACKAGE_NAME.Function derivative() {
+    public Function derivative() {
         Constant zero = new Constant(0);
         return zero;
     }
+
 }
