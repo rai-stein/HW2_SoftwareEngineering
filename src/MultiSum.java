@@ -41,7 +41,7 @@ public class MultiSum extends Function {
             derivatives[i] = this.toAdd[i].derivative();
         }
         Function[] derivativesLeft = new Function[this.toAdd.length - 2];
-        for(int i = 0; i < this.toAdd.length; i++){
+        for(int i = 0; i < this.toAdd.length-2; i++){
             derivativesLeft[i] = derivatives[i+2];
         }
         return new MultiSum(derivatives[0], derivatives[1], derivativesLeft);

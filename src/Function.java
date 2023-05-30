@@ -48,7 +48,7 @@ public abstract class Function {
         return xk;
     }
     public Function taylorPolynomial(int n){
-
+        return null;
     }
 
 }

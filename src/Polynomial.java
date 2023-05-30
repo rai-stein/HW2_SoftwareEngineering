@@ -21,7 +21,7 @@ public class Polynomial extends Function {
     @Override
     public Function derivative() {
         double[] new_mekadmim = new double[this.order-1];
-        for(int i = 1; i < this.order; i++){
+        for(int i = 1; i < this.order-1; i++){
             new_mekadmim[i] = this.mekadmim[i] * i;
         }
         return new Polynomial(new_mekadmim);
@@ -34,7 +34,11 @@ public class Polynomial extends Function {
             double curr = this.mekadmim[i];
             if(curr != 0.0){
                 if(curr == 1){
-                    toReturn.append("x^").append(String.valueOf(i));
+                    if(i == 0){
+                        toReturn.append("1");
+                    } else{
+                        toReturn.append("x^").append(String.valueOf(i));
+                    }
                 }else{
                     toReturn.append(String.valueOf(curr)).append("x^").append(String.valueOf(i));
                 }
