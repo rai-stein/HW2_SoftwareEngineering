@@ -29,4 +29,5 @@ public class Quotient extends Function {
         );
         return quo;
     }
+
 }
