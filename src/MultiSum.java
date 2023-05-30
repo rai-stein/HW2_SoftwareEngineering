@@ -26,7 +26,7 @@ public class MultiSum extends Function {
         StringBuilder toReturn = new StringBuilder("(");
         for (int i = 0; i < this.toAdd.length; i++){
             toReturn.append(toAdd[i].toString());
-            if(i != this.toAdd.length-1){
+            if(i != this.toAdd.length - 1){
                 toReturn.append("+");
             }
         }
