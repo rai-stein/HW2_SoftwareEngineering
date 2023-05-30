@@ -43,9 +43,9 @@ public class Polynomial extends Function {
                     toReturn.append(String.valueOf(curr)).append("x^").append(String.valueOf(i));
                 }
                 if(curr > 0.0) {
-                    toReturn.append("+");
+                    toReturn.append(" + ");
                 }else{
-                    toReturn.append("-");
+                    toReturn.append(" - ");
                 }
             }
         }

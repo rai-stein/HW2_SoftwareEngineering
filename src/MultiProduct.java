@@ -35,17 +35,16 @@ public class MultiProduct extends Function {
 
     @Override
     public Function derivative() {
-    Function[] tempArray  = removeItem(this.toTimes,0,1);
-    Function temp1 = new MultiProduct(this.toTimes[0].derivative(),this.toTimes[1],tempArray );
-    Function temp2 = new MultiProduct(this.toTimes[1].derivative(),this.toTimes[0],this.toTimes);
-    Function[] derArray = new Function[numFunc-2];
-    for (int i = 2 ; i<this.numFunc; i++){
-        tempArray = removeItem(this.toTimes,0,i);
-        derArray[0] = new MultiProduct(this.toTimes[i].derivative(),this.toTimes[0],tempArray);
-    }
-    Function finalDerivative = new MultiSum(temp1,temp2,derArray);
-        return finalDerivative;
-
+        Function[] tempArray  = removeItem(this.toTimes,0,1);
+        Function temp1 = new MultiProduct(this.toTimes[0].derivative(),this.toTimes[1],tempArray );
+        Function temp2 = new MultiProduct(this.toTimes[1].derivative(),this.toTimes[0],this.toTimes);
+        Function[] derArray = new Function[numFunc-2];
+        for (int i = 2 ; i<this.numFunc; i++){
+            tempArray = removeItem(this.toTimes,0,i);
+            derArray[0] = new MultiProduct(this.toTimes[i].derivative(),this.toTimes[0],tempArray);
+        }
+        Function finalDerivative = new MultiSum(temp1,temp2,derArray);
+            return finalDerivative;
     }
 
 
