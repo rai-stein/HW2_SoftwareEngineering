@@ -49,6 +49,7 @@ public class MultiProduct extends Function {
     }
 
 
+
     private Function[] removeItem(Function[] toRemove,int x, int y){
         Function[] removed = new Function[toRemove.length -2];
         int j =0;
