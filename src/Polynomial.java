@@ -1,6 +1,8 @@
 public class Polynomial extends Function {
     private final int order;
     public double[] mekadmim;
+    /* Constructor of the subClass Polynomial
+     */
     public Polynomial(double ... ai){
         this.order = ai.length;
         this.mekadmim = ai;
@@ -20,14 +22,14 @@ public class Polynomial extends Function {
     public Function derivative() {
         double[] new_mekadmim = new double[this.order-1];
         for(int i = 1; i < this.order; i++){
-            new_mekadmim[1] = this.mekadmim[i] * i;
+            new_mekadmim[i] = this.mekadmim[i] * i;
         }
         return new Polynomial(new_mekadmim);
     }
 
     @Override
     public String toString(){
-        StringBuilder toReturn = new StringBuilder(" ");
+        StringBuilder toReturn = new StringBuilder("(");
         for(int i = 0; i < this.order; i++){
             double curr = this.mekadmim[i];
             if(curr != 0.0){
@@ -43,27 +45,8 @@ public class Polynomial extends Function {
                 }
             }
         }
+        toReturn.append("(");
         return toReturn.toString();
-    }
-
-    @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return 0;
-    }
-
-    @Override
-    public double bisectionMethod(double a, double b) {
-        return 0;
-    }
-
-    @Override
-    public double newtonRaphsonMethod(double a, double epsilon){
-        return 0;
-    }
-
-    @Override
-    public double newtonRaphsonMethod(double a){
-        return 0;
     }
 
     @Override

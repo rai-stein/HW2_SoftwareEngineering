@@ -17,7 +17,6 @@ public class Sum extends MultiSum {
 
     @Override
     public Function derivative() {
-        Function newSum = new Sum(function1.derivative(), function2.derivative());
-        return newSum;
+        return new Sum(function1.derivative(), function2.derivative());
     }
 }

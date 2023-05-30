@@ -9,9 +9,7 @@ public class Power extends Function {
 
     @Override
     public double valueAt(double x) {
-
         return Math.pow(this.function.valueAt(x), this.pow);
-
     }
 
     @Override
@@ -26,6 +24,5 @@ public class Power extends Function {
                 new Power(this.function,this.pow -1)
         );
         return prod;
-
     }
 }

@@ -1,4 +1,4 @@
-public class Constant extends Polynomial { //constant is a polynomial of order 0
+public class Constant extends Function { //constant is a polynomial of order 0
     private double constant;
     public Constant(double x){
         this.constant = x;
