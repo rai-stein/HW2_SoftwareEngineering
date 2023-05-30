@@ -36,6 +36,35 @@ public abstract class Function {
 
     }
     public Function taylorPolynomial(int n){
+        Function[] tayArray = new Function[n-1];
+        Function tay1 = new Constant(this.valueAt(0));
+        Function tay2 = new Product(new Constant(this.derivative().valueAt(0)),new simpleX());
+        if (n == 1){
+            return new Sum(tay1,tay2);
+        }
+        Function tempDerivative = this.derivative();
+        double factorial =1;
+        int j =0;
+        for (int i = 2; i<= n ; i++){
+            tempDerivative = tempDerivative.derivative();
+            factorial *= i;
+            tayArray[j] = new Quotient(
+                    new Product(
+                            new Constant(tempDerivative.valueAt(0)),
+                                    new Power(
+                                            new simpleX(),i
+                                    )
+                            ),new Constant(factorial)
+
+                    );
+            j++;
+
+
+
+        }
+        return new MultiSum(tay1, tay2,tayArray);
+
+
 
     }
 
