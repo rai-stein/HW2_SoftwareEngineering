@@ -38,7 +38,10 @@ public class MultiProduct extends Function {
         Function[] tempArray  = removeItem(this.toTimes,0,1);
         Function temp1 = new MultiProduct(this.toTimes[0].derivative(),this.toTimes[1],tempArray );
         Function temp2 = new MultiProduct(this.toTimes[1].derivative(),this.toTimes[0],this.toTimes);
-        Function[] derArray = new Function[numFunc-2];
+        if (numFunc <=1){
+            return new Sum(temp1,temp2);
+        }
+        Function[] derArray = new Function[numFunc-1];
         for (int i = 2 ; i<this.numFunc; i++){
             tempArray = removeItem(this.toTimes,0,i);
             derArray[0] = new MultiProduct(this.toTimes[i].derivative(),this.toTimes[0],tempArray);
