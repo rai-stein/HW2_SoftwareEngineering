@@ -23,16 +23,11 @@ public class MultiSum extends Function {
 
     @Override
     public String toString() {
-        StringBuilder toReturn = new StringBuilder("(");
-        toReturn.append(toAdd[0].toString());
-        toReturn.append(toAdd[1].toString());
-        for (int i = 2; i < this.toAdd.length - 2; i++){
-            toReturn.append(toAdd[i].toString());
-            if(i != this.toAdd.length - 3){
-                toReturn.append(" + ");
-            }
+        String toReturn = "(" + this.toAdd[0].toString();
+        for (int i = 1; i < this.toAdd.length; i++){
+            toReturn += " + " + this.toAdd[i].toString();
         }
-        toReturn.append(")");
+        toReturn += ")";
         return toReturn.toString();
     }
 

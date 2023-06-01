@@ -23,7 +23,7 @@ public class MultiProduct extends Function {
     @Override
     public String toString() {
         String toReturn = "(" + this.toTimes[0].toString();
-        for (int i = 0; i < this.toTimes.length; i++){
+        for (int i = 1; i < this.toTimes.length; i++){
             toReturn += " * " + this.toTimes[i].toString();
         }
         toReturn += ")";
