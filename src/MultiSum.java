@@ -24,10 +24,12 @@ public class MultiSum extends Function {
     @Override
     public String toString() {
         StringBuilder toReturn = new StringBuilder("(");
-        for (int i = 0; i < this.toAdd.length; i++){
+        toReturn.append(toAdd[0].toString());
+        toReturn.append(toAdd[1].toString());
+        for (int i = 2; i < this.toAdd.length - 2; i++){
             toReturn.append(toAdd[i].toString());
-            if(i != this.toAdd.length - 1){
-                toReturn.append("+");
+            if(i != this.toAdd.length - 3){
+                toReturn.append(" + ");
             }
         }
         toReturn.append(")");

@@ -22,14 +22,11 @@ public class MultiProduct extends Function {
 
     @Override
     public String toString() {
-        StringBuilder toReturn = new StringBuilder("(");
+        String toReturn = "(" + this.toTimes[0].toString();
         for (int i = 0; i < this.toTimes.length; i++){
-            toReturn.append(toTimes[i].toString());
-            if(i != this.toTimes.length-1){
-                toReturn.append("*");
-            }
+            toReturn += " * " + this.toTimes[i].toString();
         }
-        toReturn.append(")");
+        toReturn += ")";
         return toReturn.toString();
     }
 
@@ -48,7 +45,6 @@ public class MultiProduct extends Function {
     }
 
 
-
     private Function[] removeItem(Function[] toRemove,int x, int y){
         Function[] removed = new Function[toRemove.length -2];
         int j =0;
@@ -59,6 +55,5 @@ public class MultiProduct extends Function {
             }
         }
         return removed;
-
     }
 }

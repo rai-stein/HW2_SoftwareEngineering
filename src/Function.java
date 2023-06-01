@@ -51,8 +51,14 @@ public abstract class Function {
         Function[] tayArray = new Function[n];
         Function tay1 = new Constant(this.valueAt(0));
         Function tay2 = new Product(new Constant(this.derivative().valueAt(0)),new simpleX());
+        if(n == 0){
+            return this;
+        }
+        if(this instanceof Constant){
+            return this;
+        }
         if (n == 1){
-            return new Sum(tay1,tay2);
+            return new Sum(tay1, tay2);
         }
         Function tempDerivative = this.derivative();
         double factorial = 1;
@@ -70,7 +76,7 @@ public abstract class Function {
                     );
             j++;
         }
-        return new MultiSum(tay1, tay2,tayArray);
+        return new MultiSum(tay1, tay2, tayArray);
     }
 }
 
