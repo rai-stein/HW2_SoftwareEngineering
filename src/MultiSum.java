@@ -16,7 +16,8 @@ public class MultiSum extends Function {
     public double valueAt(double x) {
         double toReturn = 0;
         for (Function function : this.toAdd) {
-            toReturn += function.valueAt(x);
+            if (function != null)            toReturn += function.valueAt(x);
+
         }
         return toReturn;
     }
@@ -25,6 +26,7 @@ public class MultiSum extends Function {
     public String toString() {
         String toReturn = "(" + this.toAdd[0].toString();
         for (int i = 1; i < this.toAdd.length; i++){
+            if (this.toAdd[i] == null) continue;
             toReturn += " + " + this.toAdd[i].toString();
         }
         toReturn += ")";
@@ -35,6 +37,7 @@ public class MultiSum extends Function {
     public Function derivative() {
         Function[] derivatives = new Function[this.toAdd.length];
         for(int i = 0; i < this.toAdd.length; i++){
+            if(this.toAdd[i] == null) continue;
             derivatives[i] = this.toAdd[i].derivative();
         }
         Function[] derivativesLeft = new Function[this.toAdd.length - 2];

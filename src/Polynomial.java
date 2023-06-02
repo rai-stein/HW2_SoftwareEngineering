@@ -20,6 +20,7 @@ public class Polynomial extends Function {
 
     @Override
     public Function derivative() {
+        if(this.order == 1) return new Constant(mekadmim[0]);
         double[] new_mekadmim = new double[this.order-1];
         for(int i = 1; i < this.order-1; i++){
             new_mekadmim[i] = this.mekadmim[i] * i;
