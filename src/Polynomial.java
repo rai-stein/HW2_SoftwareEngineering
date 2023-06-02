@@ -29,28 +29,45 @@ public class Polynomial extends Function {
 
     @Override
     public String toString(){
-        StringBuilder toReturn = new StringBuilder("(");
+        String toReturn = "(";
         for(int i = 0; i < this.order; i++){
             double curr = this.mekadmim[i];
-            if(curr != 0.0){
-                if(curr == 1){
-                    if(i == 0){
-                        toReturn.append("1");
-                    } else{
-                        toReturn.append("x^").append(String.valueOf(i));
-                    }
-                }else{
-                    toReturn.append(String.valueOf(curr)).append("x^").append(String.valueOf(i));
-                }
-                if(curr > 0.0) {
-                    toReturn.append(" + ");
-                }else{
-                    toReturn.append(" - ");
-                }
+            boolean isInt = false;
+            if((int)curr == curr){
+                curr = (int)curr;
+                isInt = true;
+            }
+            if(curr == 0){
+                continue;
+            }
+            if(!toReturn.equals("(")){
+                if(curr > 0) toReturn += " + ";
+            }
+            if((i == 0) && isInt){
+                toReturn += String.valueOf(curr);
+            }else if((i == 0) && !isInt){
+                toReturn += String.valueOf(curr);
+                continue;
+            }
+            if((i == 1) && isInt){
+                toReturn += String.valueOf(curr) + "x";
+            }else if((i == 1) && !isInt){
+                toReturn += String.valueOf(curr) + "x";
+                continue;
+            }
+            if(curr == 1){
+                toReturn += "x^" + String.valueOf(i);
+            }else if(curr == -1){
+                toReturn += "-x^" + String.valueOf(i);
+                continue;
+            }
+            if(isInt){
+                toReturn += String.valueOf(curr) + "x^" + String.valueOf(i);
+            }else {
+                toReturn += String.valueOf(curr) + "x^" + String.valueOf(i);
             }
         }
-        toReturn.append("(");
-        return toReturn.toString();
+        return toReturn;
     }
 
 }

@@ -14,7 +14,7 @@ public class Difference extends Function {
 
     @Override
     public String toString() {
-        return "(" + this.function1.toString() + "-" + this.function2.toString() + ")";
+        return "(" + this.function1.toString() + " - " + this.function2.toString() + ")";
     }
 
     @Override

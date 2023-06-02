@@ -9,6 +9,9 @@ public class Constant extends Function { //constant is a polynomial of order 0
     }
     @Override
     public String toString() {
+        if((int)this.constant == this.constant){
+            return ("(" + (int)this.constant + ")");
+        }
         return ("(" + this.constant+ ")");
     }
     @Override

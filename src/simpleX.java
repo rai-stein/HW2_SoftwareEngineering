@@ -1,6 +1,5 @@
 public class simpleX extends Function {
     public simpleX(){}
-
     @Override
     public double valueAt(double x) {
         return x;

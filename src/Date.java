@@ -8,7 +8,6 @@ public class Date {
         setDay(d);
         setMonth(m);
         setYear(y);
-
     }
     /* Checks that the month is legal, and if so sets the object's month
      */
