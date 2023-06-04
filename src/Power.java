@@ -14,14 +14,23 @@ public class Power extends Function {
 
     @Override
     public String toString() {
-        return this.function.toString()+"^"+Double.toString(pow);
+        if(this.function.getClass() == Constant.class){
+            return Double.toString(Math.pow(function.valueAt(0), this.pow));
+        }
+        if (this.function.getClass() == Constant.class && this.function.valueAt(0) == 0){
+            return "";
+        }
+
+        return "("+this.function.toString()+"^"+Integer.toString(pow)+")";
     }
 
     @Override
     public Function derivative() {
-        Function prod = new Product(
+        if (pow == 1) return function.derivative();
+        Function prod = new MultiProduct(
                 new Constant(this.pow),
-                new Power(this.function,this.pow -1)
+                new Power(this.function,this.pow -1),
+                this.function.derivative()
         );
         return prod;
     }

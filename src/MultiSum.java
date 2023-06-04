@@ -24,6 +24,7 @@ public class MultiSum extends Function {
 
     @Override
     public String toString() {
+
         String toReturn = "(" + this.toAdd[0].toString();
         for (int i = 1; i < this.toAdd.length; i++){
             if (this.toAdd[i] == null) continue;

@@ -48,35 +48,29 @@ public abstract class Function {
         return xk;
     }
     public Function taylorPolynomial(int n){
-        Function[] tayArray = new Function[n];
-        Function tay1 = new Constant(this.valueAt(0));
-        Function tay2 = new Product(new Constant(this.derivative().valueAt(0)),new simpleX());
+        double[] tayArray = new double[n+1];
         if(n == 0){
-            return this;
+            return new Constant(this.valueAt(0));
         }
+        tayArray[0] = this.valueAt(0);
+        tayArray[1] = this.derivative().valueAt(0);
+
         if(this instanceof Constant){
             return this;
         }
         if (n == 1){
-            return new Sum(tay1, tay2);
+            return new Polynomial(tayArray);
         }
         Function tempDerivative = this.derivative();
         double factorial = 1;
         int j =0;
-        for (int i = 2; i<= n ; i++){
+        for (int i = 2; i<= n ; i++) {
             tempDerivative = tempDerivative.derivative();
             factorial *= i;
-            tayArray[j] = new Quotient(
-                    new Product(
-                            new Constant(tempDerivative.valueAt(0)),
-                                    new Power(
-                                            new simpleX(),i
-                                    )
-                            ),new Constant(factorial)
-                    );
-            j++;
+            tayArray[i] = tempDerivative.valueAt(0) / factorial;
         }
-        return new MultiSum(tay1, tay2, tayArray);
+        return new Polynomial(tayArray);
+
     }
 }
 

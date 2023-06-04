@@ -7,7 +7,7 @@ public class simpleX extends Function {
 
     @Override
     public String toString() {
-        return "x";
+        return "";
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Quotient extends Function {
                 new Difference(
                         new Product(this.function1.derivative(), this.function2 ),
                                 new Product(
-                                        this.function1,this.function2.derivative()
+                                        this.function2.derivative(),this.function1
                                 )
                         ),
                 new Power(this.function2,2)

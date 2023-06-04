@@ -22,16 +22,36 @@ public class MultiProduct extends Function {
 
     @Override
     public String toString() {
-        String toReturn = "(" + this.toTimes[0].toString();
-        for (int i = 1; i < this.toTimes.length; i++){
-            toReturn += " * " + this.toTimes[i].toString();
+
+        String toReturn ="(";
+        if (toTimes[0].getClass()== Constant.class && toTimes[0].valueAt(0) == -1){
+            toReturn+="-";
         }
-        toReturn += ")";
+        else {
+            toReturn += toTimes[0].toString()+" * ";
+        }
+
+
+        for (int i = 1; i < this.toTimes.length-1; i++){
+            if (this.toTimes[i].getClass() == Constant.class){
+                if(this.toTimes[i].valueAt(0) == 1) continue;
+                else if(this.toTimes[i].valueAt(0) == -1) toReturn += "-";
+                else {
+                    toReturn +=   this.toTimes[i].toString()+" * ";
+
+                }
+            }
+            else {
+                toReturn +=   this.toTimes[i].toString()+" * ";
+            }
+        }
+        toReturn += this.toTimes[toTimes.length-1] +")";
         return toReturn.toString();
     }
 
     @Override
     public Function derivative() {
+
         Function[] tempArray  = removeItem(this.toTimes,0,1);
         Function temp1 = new MultiProduct(this.toTimes[0].derivative(),this.toTimes[1],tempArray );
         Function temp2 = new MultiProduct(this.toTimes[1].derivative(),this.toTimes[0],this.toTimes);
