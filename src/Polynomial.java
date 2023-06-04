@@ -68,6 +68,7 @@ public class Polynomial extends Function {
                 toReturn += String.valueOf(curr) + "x^" + String.valueOf(i);
             }
         }
+        toReturn += ")";
         return toReturn;
     }
 
