@@ -32,18 +32,18 @@ public abstract class Function {
     public double newtonRaphsonMethod(double a, double epsilon){
         double xk = a;
         double xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
-        while(this.valueAt(xk) >= epsilon){
+        while(Math.abs(this.valueAt(xk)) >= epsilon){
             xk = xk1;
-            xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+            xk1 = xk - (this.valueAt(xk)/this.derivative().valueAt(xk));
         }
         return xk;
     }
     public double newtonRaphsonMethod(double a){
         double xk = a;
         double xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
-        while(this.valueAt(xk) >= kavua){
+        while(Math.abs(this.valueAt(xk)) >= kavua){
             xk = xk1;
-            xk1 = a - (this.valueAt(xk)/this.derivative().valueAt(xk));
+            xk1 = xk - (this.valueAt(xk)/this.derivative().valueAt(xk));
         }
         return xk;
     }
