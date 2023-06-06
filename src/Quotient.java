@@ -16,6 +16,10 @@ public class Quotient extends Function {
         return "(" + this.function1.toString() + " / " + this.function2.toString() + ")";
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Function derivative() {
         Function quo = new Quotient(

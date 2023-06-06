@@ -31,7 +31,6 @@ public class MultiProduct extends Function {
             toReturn += toTimes[0].toString()+" * ";
         }
 
-
         for (int i = 1; i < this.toTimes.length-1; i++){
             if (this.toTimes[i].getClass() == Constant.class){
                 if(this.toTimes[i].valueAt(0) == 1) continue;
